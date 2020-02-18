@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-------------------------------------------------------------------------------------------------------------
+	 	This file is the client side for the Hi-Lo game. The user is prompted for their name,
+		followed by the maximum number they want to guess. Validation is done using Javascript,
+		functions can be found in the scripts.js file. Once the name and max guess have 
+		passed validation the form is sumbmitted and the game continues on the server 
+		(GameEngine.asp)
+-------------------------------------------------------------------------------------------------------------->
+<hmtl>
+	<head>
+		<title>Hi-Lo Game</title>
+		<style type="text/css">
+			body {
+				background-color: #282923;
+				font-family: Consolas, monaco, monospace;
+				text-align: center;
+			}
+			h1 {
+				color: #66D9EF;
+				display: inline-block;
+				border-style: solid;
+				border-width: 3px;
+				border-radius: 5px;
+				border-color: #AE81FF;
+			}
+			p {
+				font-size: 17px;
+				color: #A6E22E;
+			}
+			input[type=text] {
+				border: none;
+				border-bottom: 5px solid orange;
+			}
+			.txtColor {
+				font-size: 17px;
+				color: #A6E22E;
+			}
+			.formWrapper {
+				display: inline-block;
+				border-style: dotted;
+				border-color: #D8DB84;
+				width: 500px;
+				height: 300px;
+			}
+			.errorColor {
+				color: #F92672;
+			}
+			.button {
+				color: #75715E;
+				border: 5px solid orange;
+				padding: 3px 10px;
+				border-radius: 16px;
+			}
+			.nameDiv {
+				align-items: center;
+			}
+			.maxDiv {
+				
+				align-items: center;
+				visibility: hidden;
+			}
+		</style>
+		<script type="text/javascript" src="scripts.js" >
+		</script>
+	</head>
+	<body>
+		<form name="GameForm" action="GameEngine.asp" method="POST" onsubmit="return validateMax();">
+			<div class="formWrapper">
+				<h1>Hi-Lo Game!</h1>
+				<!-- This is the enter your name page -->
+				<div id="nameDiv" class="nameDiv">
+					<p>What is your name?</p>
+					<input id="nameValue" type="text" name="nameValue" placeholder="Ex: John Smith" />
+					<input class="button" type="button" id="nameBtn" value="Enter"  onclick="validateName();">
+					<br><br>
+					<div id="nameError" class="errorColor">&nbsp;</div>
+				</div>
+				<!-- This is the enter your max guess page -->
+				<div id="maxDiv" class="maxDiv">
+					<br>
+					<div id="namePrompt" class="txtColor"></div>
+
+					<input id="maxValue" type="text" name="maxValue" placeholder="Ex: 50" />
+					<input class="button" type="submit" id="maxBtn" value="Enter">
+					<br><br>
+					<div id="maxError" class="errorColor">&nbsp;</div>
+				</div>
+			<div>
+		</form>
+	</body>
+</hmtl>
